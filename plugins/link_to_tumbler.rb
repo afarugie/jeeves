@@ -16,13 +16,13 @@ end
 class TumblerAPI 
   #Tumbler API
   @@client = Tumblr::Client.new({
-    :consumer_key => ENV['consumer_key']
-    :consumer_secret => ENV['consumer_secret']
-    :oauth_token => ENV['oauth_token']
-    :oauth_token_secret => ENV['oauth_token_secret']
+    :consumer_key => ENV['JEEVES_CONSUMER_KEY']
+    :consumer_secret => ENV['JEEVES_CONSUMER_SECRET']
+    :oauth_token => ENV['JEEVES_OAUTH_TOKEN']
+    :oauth_token_secret => ENV['JEEVES_OAUTH_TOKEN_SECRET']
   })
   
   def self.post_message(message) 
-    @@client.text("cvtc-jeeves.tumblr.com", :body => message, :state => "posts") if message.include?("http:")
+    @@client.text("cvtc-jeeves.tumblr.com", :body => message, :state => "posts") 
   end
 end
